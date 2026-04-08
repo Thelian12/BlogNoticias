@@ -75,20 +75,43 @@ body {
 
 
 .entrada-destacada {  
-    display: flex;
-    border: 1px solid #ddd; 
+    display: flex; /*Alinea imagen y texto*/
+    border: 1px solid #ddd;  /* Mantiene un cuadro con borde sutil*/
     margin-bottom: 30px; 
-    align-items: center;
-    padding: 20px;
+    align-items: stretch; /*Hace que ambos lados izquierda y derecha tengan la misma altura*/ 
+    overflow: hidden;  /*Evita que la imagen salga de las esquinas del contenedor*/
 }
 
-.entrada-destacada h2 { 
-    font-size: 2rem; 
-    margin-bottom: 15px;
+.entrada-destacada .imagen { 
+    flex: 40%; /*Toma el 40% */
 }
 
-.entrada-destacada img { 
+.entrada-destacada .imagen img { 
     width: 100%;
-    margin-bottom: 15px;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
 }
 
+.entrada-destacada .contenido-texto { 
+    flex: 60%;  /*Toma el otro 60% del ancho*/
+    padding: 40px; /*Espacio interno para que el texto respire*/
+    display: flex;  
+    flex-direction: column; /*Ordena h2 y botón hacia abajo*/ 
+    justify-content: center; /*Centra el  texto verticalmente*/
+    align-items: flex-start; /*Elementos internos se alinean a la izquierda y ocupan el ancho que necesiten*/
+}
+
+/*BOTON AZUL ENTRADA DESTACADA*/
+
+.contenido-texto a { 
+    text-decoration: none;
+    color: #fff;
+    display: inline-block; /*Links inline , con esto se comportan como botones*/
+}
+
+.boton-azul {
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
