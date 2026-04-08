@@ -1,0 +1,94 @@
+/* --- CONFIGURACION GLOBAL --- */
+
+html { 
+    box-sizing: border-box; /*Evita que el paddig sume tamaño extra a las cajas*/
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body { 
+    font-family: 'Verdana', sans-serif;
+    background-color: #fff; 
+    color: #333; 
+    margin: 0;
+}
+
+/* --- ESTILOS HEADER Y NAV --- */
+
+/*Clase de estilo y visual*/ 
+
+.site-header { 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3); /* sombra como línea difusa */
+}
+
+.barra-superior { 
+    display: flex; 
+    justify-content: space-around; /*Coloca espacio a los lados de cada elemento, asi quedan separados con margenes*/
+    align-items: center;
+}
+
+.logo img { 
+    height: 100px;
+    width: auto;
+}
+
+.navegacion-principal { 
+    display: flex; 
+    gap: 20px;
+}
+
+.navegacion-principal a { 
+    text-decoration: none; 
+    color: #333; 
+    font-size: 1.2rem; 
+    font-weight: 800;
+}
+
+.clearfix::after { 
+    content: ""; 
+    display: block; 
+    clear:both;
+}
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        width: 1000px; /* Ancho solicitado para las noticias */
+        float: left;       /*Se coloca a la izquierda*/
+        padding-right: 40px; /* Espacio interno a la derecha */
+    }
+
+    .sidebar {
+        width: 200px; /* Ancho solicitado para la barra lateral */
+        float: right; /*Se coloca a la derecha*/
+    }
+}
+
+/* --- ESTILOS CONTENIDO PRINCIPAL --- */
+
+.contenedor { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 20px;
+}
+
+
+.entrada-destacada {  
+    display: flex;
+    border: 1px solid #ddd; 
+    margin-bottom: 30px; 
+    align-items: center;
+    padding: 20px;
+}
+
+.entrada-destacada h2 { 
+    font-size: 2rem; 
+    margin-bottom: 15px;
+}
+
+.entrada-destacada img { 
+    width: 100%;
+    margin-bottom: 15px;
+}
+
