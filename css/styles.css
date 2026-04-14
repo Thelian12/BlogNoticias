@@ -4,6 +4,19 @@ html {
     box-sizing: border-box; /*Evita que el paddig sume tamaño extra a las cajas*/
 }
 
+/*Herencia de comportamiento*/
+/*Hmtl es el jefe y inherit yo hago lo que hace el jefe*/
+/*Si la librería se rompe porque es vieja, le pones box-sizing: content-box al padre para que NO use border-box. Es decir, le devuelves su comportamiento antiguo (donde las cajas se "inflan") para que no se vea descuadrada.
+
+Aquí te lo resumo para que no se te olvide:
+
+Por defecto: Gracias al inherit, la librería intentará ser border-box (como tu proyecto).
+
+Si se ve mal: Vas al padre de esa librería y le pones box-sizing: content-box.
+
+La magia: Gracias al inherit, todos los botones y fotos de esa librería "copian" al padre y se vuelven content-box al instante.
+
+Resultado final: Tu blog sigue perfecto con border-box y la librería vieja funciona bien con content-box. ¡Todos ganan!*/
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -12,7 +25,6 @@ body {
     font-family: 'Verdana', sans-serif;
     background-color: #fff; 
     color: #333; 
-    margin: 0;
 }
 
 /* --- ESTILOS HEADER Y NAV --- */
@@ -68,7 +80,7 @@ body {
 /* --- ESTILOS CONTENIDO PRINCIPAL --- */
 
 .contenedor { 
-    max-width: 1200px; 
+    max-width: 1200px; /*No crezcas mas de esto*/
     margin: 0 auto; 
     padding: 20px;
 }
@@ -141,6 +153,7 @@ body {
 
 .entrada-grid h3, .entrada-grid p, .entrada-grid a { 
     padding: 0 15px; /*Espacio a los lados*/
+    margin-bottom: 5px;
 }
 
 .entrada-grid p { 
@@ -185,5 +198,48 @@ body {
 .categoria.juegos { 
     background: #28a745;  /* Fondo verde (típico de Xbox o éxito) */
     color: #fff; /* Texto blanco */
+}
+
+/* ============================================
+   5. SECCIÓN INFERIOR - Grid de 3 Imágenes
+   Uso de Flexbox para distribuir el contenido
+   ============================================ */
+
+/*Contenedor padre*/ 
+.seccion-inferior { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /*3 columnas iguales*/ 
+    gap: 20px; 
+    width: 1200px; 
+    margin: 0 auto; 
+}
+
+.seccion-inferior h2 { 
+    grid-column: 1 / 4; /* Titulo ocupe las 3 columnas - si se pone 1 / 4 se le dice al navegador que el h2 es el jefe que se estire de la linea 1 hasta la 4 esto hace que el titulo ocupe una fila solo y deje las demas filas las otras 3 para que se acomode imagen y texto*/
+    font-size: 1.7rem; 
+    margin-bottom: 20px; 
+}
+
+/*Usamos flex para lo pequeño*/
+.entrada-horizontal { 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 15px; 
+}
+
+.imagen-mas-noticias img{ 
+    width: 120px; 
+    height: 90px; 
+    object-fit: cover;
+}
+
+.texto-noticia h3 { 
+    margin: 0 0 5px 0;  /*quitar margen superior para alinear con la foto*/
+    font-size: 1.4rem;
+}
+
+.texto-noticia p { 
+    font-size: 1.0rem; 
+    color: #666;
 }
 
